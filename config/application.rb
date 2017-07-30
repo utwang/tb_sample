@@ -22,5 +22,20 @@ module TbSample
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.generators do |g|
+      g.orm :active_record
+      g.template_engine :slim
+      g.test_framework  :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
+      g.view_specs false
+      g.controller_specs false
+      g.routing_specs false
+      g.helper_specs false
+      g.request_specs false
+      g.assets false
+      g.helper false
+      g.decorator false
+    end
   end
 end
